@@ -9,4 +9,15 @@ const validateLogin = ({ email, password }) => {
   }
 };
 
-module.exports = { validateLogin };
+const validateUser = ({ displayName, email, password }) => {
+  const { error } = schema.user.validate({ displayName, email, password });
+  if (error) {
+    const [status, message] = error.message.split('|');
+    throw new CustomError(+status, message);
+  }
+};
+
+module.exports = {
+  validateLogin,
+  validateUser,
+};
