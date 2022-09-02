@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/', routes.userRouter, routes.categoryRouter);
+app.use('/', routes.userRouter, routes.categoryRouter, routes.postRouter);
 
 // ...
 app.use(errorMiddleware);
